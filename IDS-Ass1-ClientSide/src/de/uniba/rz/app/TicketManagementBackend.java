@@ -12,7 +12,7 @@ import de.uniba.rz.entities.Type;
  * Defines the actions the GUI is calling to create, list and modify
  * {@link Ticket}s
  */
-public interface TicketManagementBackend extends Shutdown {
+public interface TicketManagementBackend extends Shutdown, TicketSearchBackend {
 
 	/**
 	 * Method to create a new Ticket based on the provided information

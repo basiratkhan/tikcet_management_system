@@ -18,6 +18,8 @@ public class Ticket implements Serializable {
 	private Priority priority;
 	private Status status;
 
+	public Ticket() {}
+	
 	public Ticket(int id, String reporter, String topic, String description, Type type, Priority priority) {
 		super();
 		this.id = id;
@@ -69,16 +71,32 @@ public class Ticket implements Serializable {
 		return status;
 	}
 
-	public void setStatus(Status status) {
-		this.status = status;
-	}
-
 	public String getTopic() {
 		return topic;
 	}
 
 	public Type getType() {
 		return type;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setReporter(String reporter) {
+		this.reporter = reporter;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	@Override

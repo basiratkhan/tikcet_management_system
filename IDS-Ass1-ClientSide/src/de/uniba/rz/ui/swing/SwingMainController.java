@@ -1,5 +1,7 @@
 package de.uniba.rz.ui.swing;
 
+import java.util.List;
+
 import de.uniba.rz.app.Shutdown;
 import de.uniba.rz.entities.Priority;
 import de.uniba.rz.entities.Ticket;
@@ -80,9 +82,22 @@ public class SwingMainController {
 			mainFrame.showErrorDialog("Invalid status change", e);
 		}
 	}
+	
+	public void searchTicket(String name, Type type) {
+		try {
+			List<Ticket> tickets = model.searchTicket(name, type);
+			mainFrame.updateTable(tickets);
+		} catch (TicketException e) {
+			mainFrame.showErrorDialog("Could not perform ticket search", e);
+		}
+	}
 
 	public void refreshTicketList() {
-		// FIXME
+		try {
+			mainFrame.updateTable(model.getAllTickets());
+		} catch (TicketException e) {
+			mainFrame.showErrorDialog("Error refreshing list of tickets", e);
+		}
 	}
 
 	public void triggerApplicationShutdown() {
